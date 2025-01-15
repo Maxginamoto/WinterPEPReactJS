@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper and Scissors</title>
+</head>
+<body>
+    <button onclick="
+        userMove='rock';
+        pcMove=pcMovePicker();
+        matchResult(pcMove, userMove);
+        console.log(pcMove, userMove);
+    ">Rock</button>
+
+    <button onclick="
+        userMove='paper';
+        pcMove=pcMovePicker();
+        matchResult(pcMove, userMove);
+        console.log(pcMove, userMove);
+    ">Paper</button>
+
+    <button onclick="
+        userMove='scissors';
+        pcMove=pcMovePicker();
+        matchResult(pcMove, userMove);
+        console.log(pcMove, userMove);
+    ">Scissors</button>
+
+    <script>
+        let userMove = '';
+        let pcMove = '';
+
+        function pcMovePicker(){
+            let randomValue = Math.random();
+            if (randomValue>=0 && randomValue<1/3){
+                return `rock`;
+            }if (randomValue>=1/3 && randomValue<2/3) {
+                return `paper`;
+            }if (randomValue>=2/3 && randomValue<1) {
+                return `scissors`;
+            }
+        }
+        function matchResult(pcMove, userMove){
+            if (pcMove === userMove) {
+                alert(`Both you and machine picked ${pcMove}, it's a tie!`);
+                return '';
+            }
+            if ((pcMove === "rock" && userMove === "paper")||(pcMove === "paper" && userMove ==="scissors")||(pcMove==='scissors' && userMove==="rock")) {
+                alert(`You picked ${userMove} and the machine picked ${pcMove}. YOU WON!!!!`);
+            }else{
+                alert(`You picked ${userMove} and the machine picked ${pcMove}. you lost...`);
+            }
+        }
+        // console.log(pcMove());
+    </script>
+</body>
+</html>
