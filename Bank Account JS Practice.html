@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="deposit()">Deposit</button>
+    <button onclick="withdraw()">Withdraw</button>
+    <button onclick="alert(accNo, amount)">Balance</button>
+    <script>
+        const accNo = createAccount();
+        let amount = 0;
+        function createAccount(){
+            let accNo=prompt("Enter you Account Number:");
+            // let amount= prompt("Enter initial amount");
+            return accNo;
+        }
+        function withdraw(){
+            let request = parseInt(prompt("Enter amount to be deposited"));
+            if(request<=amount){
+                amount -= request;
+            }else{
+                alert(`not enought balance`);
+            }
+            console.log(amount);
+        }
+        function deposit(){
+            amount += parseInt(prompt("Enter amount to be deposited"));
+            console.log(amount)
+        }
+
+    </script>
+</body>
+</html>
